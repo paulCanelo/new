@@ -180,6 +180,8 @@ button{
 	left: 0;
 	bottom: 0;
 	z-index: 1000;
+  animation: opacity 1s;
+  perspective: 800px;
 }
 .ventana{
   width: 45%;
@@ -189,6 +191,7 @@ button{
   position: relative;
   padding: 10px 0px;
   border-radius: 4px;
+  animation: rotate 1s linear;
 }
 .ventana .body_alerta::-webkit-scrollbar{
   width: 0px; 
@@ -307,4 +310,50 @@ a:hover .pleft{
 }
 .clearfix:after{
   clear: both;
+}
+@keyframes opacity {
+  0% {
+    background: rgba(0, 0, 0, .1);
+  }
+  100% {
+    background: rgba(0, 0, 0, .7);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  25% {
+    transform: rotate3d(1, 0, 0, -10deg);
+  }
+  50% {
+    transform: rotate3d(1, 0, 0, 10deg);
+  }
+  75% {
+    transform: rotate3d(1, 0, 0, -10deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0);
+  }
+}
+
+/* Menu de navegacion modal */
+
+/* Menu de navegacion */
+#menu{
+  background: rgb(40, 90, 255);
+  overflow: hidden;
+}
+#menu li{
+  float: left;
+  list-style: none;
+}
+#menu li a{
+  padding: 14px 20px;
+  display: block;
+  text-decoration: none;
+  color: rgba(255,255,255,.6);
+}
+#menu li.active a{
+  background: rgb(40, 90, 100)
 }

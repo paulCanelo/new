@@ -36,11 +36,7 @@ const Tramites = () => {
     }
         
     </table>
-    <Animated animationIn="lightSpeedIn" animationOut="zoomOutDown" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
-        <div>
-            hello world 
-        </div>
-        </Animated>
+    <Modal/>
 </>)
 }
 

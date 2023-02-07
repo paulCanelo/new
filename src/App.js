@@ -1,4 +1,4 @@
-//import './css/App.css';
+import './css/App.css';
 import { BrowserRouter } from "react-router-dom"
 import Rutas from './routes/rutas'
 import ThemeProvider from './components/context/Provider'

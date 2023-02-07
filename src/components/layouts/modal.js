@@ -17,14 +17,16 @@ const Modal = () => {
     }
 
     return(
-        <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={false} animationInDuration={600} animationOutDuration={600} className="fixed">
-            <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={false} animationInDuration={600} animationOutDuration={600} className="ventana clearfix">
+        <div className="fixed clearfix" style={{display: modal === true?"block":"none"}}>
+            <div className="ventana clearfix">
                 <h1>Mi ventana</h1>
                 {Tipo()}
                 <Create/>
+
+                {/* Quitar esta opcion o ver la forma de hacerlo generico para todos los formularios que utilicen la modal  */}
                 <button onClick={() => setModal(false)}>Cerrar</button>
-            </Animated>
-        </Animated>
+            </div>
+        </div>
     )
 }
 

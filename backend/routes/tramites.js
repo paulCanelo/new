@@ -9,6 +9,7 @@ import {
 const router = Router();
 
 router.post('/tramite-index', indexTramites);
+router.post('/tramite-create', createTramites);
 router.post('/etapas-create', () => {
   return res.json({
       estado: true,

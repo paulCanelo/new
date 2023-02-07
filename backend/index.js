@@ -4,6 +4,7 @@ import { Router } from 'express';
 
 import tramitesRoutes from './routes/tramites.js'
 import usuariosRoutes from './routes/usuarios.js'
+import dependenciasRoutes from './routes/dependencias'
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.use(cors());
 
 app.use('/api', [
   tramitesRoutes,
-  usuariosRoutes
+  usuariosRoutes,
+  dependenciasRoutes
 ]);
 
 app.use('/', (req, res) => {
