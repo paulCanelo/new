@@ -1,27 +1,42 @@
 import React from 'react'
+import { useForm } from "react-hook-form";
+import { ThemeContext } from './../../components/context/Provider'
 
-const Create = () => {
+const CreateUsuario = () => {
+
+    const {register, handleSubmit } = useForm();
+    const {createUsuario} = React.useContext(ThemeContext)
+
     return(
-        <>
-                <input placeholder='Nombre del tramite'/><br></br>
-                
-                <select>
-                    <option>Seleccione Dependencia del tramite</option>
-                </select><br></br>
+    <>
+        <form onSubmit={handleSubmit(createUsuario)} autoComplete="off" noValidate>
+            {
+                <div>
+                    <label>NumeroDocumento</label>
+                    <input type="text" placeholder="NumeroDocumento" id="NumeroDocumento" {...register("NumeroDocumento", {required: true})}/>
 
-                <textarea placeholder='Descripcion del tramite'>
+                    <label>TipoDocumento</label>
+                    <input type="text" placeholder="TipoDocumento" id="TipoDocumento" {...register("TipoDocumento", {required: true})}/>
 
-                </textarea><br></br>
+                    <label>Nombres</label>
+                    <input type="text" placeholder="Nombres" id="Nombres" {...register("Nombres", {required: true})}/>
 
-                <textarea placeholder='Requisitos del tramite'>
+                    <label>Apellidos</label>
+                    <input type="text" placeholder="Apellidos" id="Apellidos" {...register("Apellidos", {required: true})}/>
 
-                </textarea><br></br>
+                    <label>Correo </label>
+                    <input type="text" placeholder="Correo " id="Correo " {...register("Correo ", {required: true})}/>
 
-                <input placeholder='Plazo personalizado'/><br></br>
+                    <label>Password</label>
+                    <input type="text" placeholder="Password" id="Password" {...register("Password", {required: true})}/>
 
-                <button>Crear Tramite</button>
+                    <button className="btn">Crear usuario</button>
+                </div>                
+            }
+        </form>
+            
     </>
     )
 }
 
-export default Create
+export default CreateUsuario

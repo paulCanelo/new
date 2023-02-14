@@ -5,7 +5,7 @@ import Content from './../../components/layouts/content'
 import { ThemeContext } from './../../components/context/Provider'
 import { Link } from "react-router-dom"; //Outlet, Link 
 import Modal from "./../../components/layouts/modal"
-import { Animated } from "react-animated-css";
+import Create from "./create"
 
 
 const Tramites = () => {
@@ -22,7 +22,7 @@ const Tramites = () => {
     <Menu/>
     <Content/>
     
-    <button onClick={() => setModal(true)}>Crear tramite</button>
+    <button onClick={() => setModal({activar: true, ventana: <Create/>})}>Crear tramite</button>
     <table>
     {
         tramites.length > 0? 

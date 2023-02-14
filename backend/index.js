@@ -4,7 +4,7 @@ import { Router } from 'express';
 
 import tramitesRoutes from './routes/tramites.js'
 import usuariosRoutes from './routes/usuarios.js'
-import dependenciasRoutes from './routes/dependencias'
+import dependenciasRoutes from './routes/dependencias.js'
 
 const app = express();
 

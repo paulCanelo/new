@@ -1,4 +1,4 @@
-import {dependenciasModel} from './../models/generalesModel.js'
+import {indexDependenciasModel} from './../models/dependenciasModel.js'
 
 export const indexDependencia = async (req, res) => {
     try{
