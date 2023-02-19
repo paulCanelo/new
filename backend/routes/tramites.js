@@ -6,7 +6,9 @@ import {
   createEtapa,
   indexEtapas,
   indexCampos,
-  createCampos
+  createCampos,
+  flujoCreate,
+  flujoIndex
 } from './../controllers/tramitesController.js';
 
 //import { authenticateToken } from '../middlewares/jwt.middleware.js';
@@ -20,11 +22,7 @@ router.get('/etapas-index/:idTramite', indexEtapas);
 router.get('/campos-index', indexCampos);
 router.post('/campos-create', createCampos);
 
-router.post('/flujo-create', () => {
-  return res.json({
-      estado: true,
-      mensaje: 'funciona'
-  })
-});
+router.post('/flujo-create', flujoCreate);
+router.get('/flujo-index/:idTramite', flujoIndex);
 
 export default router;

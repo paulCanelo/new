@@ -1,1 +1,10 @@
 /* Personalizados */
+
+/* Css de prueba */
+.etapas{
+    padding: 10px;
+    background: rgba(20, 123, 240, 0.705);
+    color: white;
+    margin: 12px;
+    font-size: 12px;
+}

@@ -4,7 +4,9 @@ import {
     indexEtapasModel, 
     createEtapaModel, 
     indexCamposModel, 
-    createCamposModel
+    createCamposModel,
+    flujoCreateModel,
+    flujoIndexModel
 } from './../models/tramitesModel.js'
 
 
@@ -81,6 +83,35 @@ export const createCampos = async (req, res) => {
         await createCamposModel(req.body)
         return res.json({
             ok: "Campos creado",
+        })
+    } catch(error){
+        console.log("Retornar el error", error)
+    }
+}
+
+export const flujoCreate = async (req, res) => {
+    try{
+        const {estado, Etapas_IdEtapa, EtapaSiguiente} = req.body;
+        console.log("Aqui lo que viene en elbody", req.body)
+        console.log("Aqui en el controlador", EtapaSiguiente, Etapas_IdEtapa)
+        const data = {Etapas_IdEtapa, EtapaSiguiente}
+        await flujoCreateModel(data, estado)
+        return res.json({
+            ok: "Campos creado",
+        })
+    } catch(error){
+        console.log("Retornar el error", error)
+    }
+}
+
+export const flujoIndex = async (req, res) => {
+    try{
+        const idTramite = req.params.idTramite;
+        const flujo = await flujoIndexModel(idTramite)
+        console.log(flujo)
+        return res.json({
+            ok: true,
+            flujo
         })
     } catch(error){
         console.log("Retornar el error", error)

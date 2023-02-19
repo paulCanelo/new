@@ -6,6 +6,7 @@ const ThemeProvider = (props) => {
     const [etapasindex, setEtapasindex] = React.useState([]);
     const [camposindex, setCamposindex] = React.useState([])
     const [usuariosindex, setUsuariosindex] = React.useState([])
+    const [flujoindex, setFlujoindex] = React.useState([])
     const [modal, setModal] = React.useState({
         activar: false
     });
@@ -97,23 +98,48 @@ const ThemeProvider = (props) => {
         }
     }
 
-    const CreateUsuario = async (data) => {
+    const createUsuario = async (data) => {
         try {
-            const datos = await fetch(`${process.env.REACT_APP_URL}/usuarios-create`, await request('POST', data))
+            const datos = await fetch(`${process.env.REACT_APP_URL}/create-usuarios`, await request('POST', data))
             const response = await datos.json() 
             setModal({activa: false})
+            console.log(response)
         } catch (error){
             console.log(error)
         }
     }    
+
+    const indexFlujo = async (idTramite) => {
+        try {
+            const datos = await fetch(`${process.env.REACT_APP_URL}/flujo-index/${idTramite}`, await request('GET'))
+            const response = await datos.json() 
+            setModal({activa: false})
+            setFlujoindex(response.flujo)
+            console.log(response)
+        } catch (error){
+            console.log(error)
+        }
+    }   
+    
+    const createFlujo = async (data) => {
+        try {
+            const datos = await fetch(`${process.env.REACT_APP_URL}/flujo-create`, await request('POST', data))
+            const response = await datos.json() 
+            setModal({activa: false})
+            console.log(response)
+        } catch (error){
+            console.log(error)
+        }
+    }   
 
     return (
         <ThemeContext.Provider value={{
             indexTramites, tramites, createTramites, respuesta,
             indexEtapas, etapasindex, createEtapas,
             indexCampos, createCampos, camposindex,
-            indexUsuarios, usuariosindex,
-            modal, setModal, tipo, setTipo
+            indexUsuarios, usuariosindex, createUsuario,
+            modal, setModal, tipo, setTipo,
+            indexFlujo, flujoindex, createFlujo
         }}>
             {props.children}
         </ThemeContext.Provider>
