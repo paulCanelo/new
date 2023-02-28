@@ -15,7 +15,7 @@ import {
 
 const router = Router();
 
-router.post('/tramite-index', indexTramites);
+router.get('/tramite-index', indexTramites);
 router.post('/tramite-create', createTramites);
 router.post('/etapas-create', createEtapa);
 router.get('/etapas-index/:idTramite', indexEtapas);

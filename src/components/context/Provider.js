@@ -2,7 +2,7 @@ import React from 'react'
 export const ThemeContext = React.createContext()
 
 const ThemeProvider = (props) => {
-    const [tramites, setTramites] = React.useState([]);
+    const [tramitesindex, setTramitesindex] = React.useState([]);
     const [etapasindex, setEtapasindex] = React.useState([]);
     const [camposindex, setCamposindex] = React.useState([])
     const [usuariosindex, setUsuariosindex] = React.useState([])
@@ -27,7 +27,8 @@ const ThemeProvider = (props) => {
         try {
             const datos = await fetch(`${process.env.REACT_APP_URL}/tramite-index`, await request('GET', data))
             const response = await datos.json() 
-            setTramites(response)
+            console.log(response)
+            setTramitesindex(response.tramites)
         } catch (error){
             console.log(error)
         }
@@ -134,7 +135,7 @@ const ThemeProvider = (props) => {
 
     return (
         <ThemeContext.Provider value={{
-            indexTramites, tramites, createTramites, respuesta,
+            indexTramites, tramitesindex, createTramites, respuesta,
             indexEtapas, etapasindex, createEtapas,
             indexCampos, createCampos, camposindex,
             indexUsuarios, usuariosindex, createUsuario,

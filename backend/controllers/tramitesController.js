@@ -14,6 +14,7 @@ import {
 export const indexTramites = async (req, res) => {
     try{
         const tramites = await indexTramitesModel();
+        console.log(tramites)
         return res.json({
             tramites
         })

@@ -9,12 +9,12 @@ import Create from "./create"
 
 
 const Tramites = () => {
-    const {indexTramites, tramites, modal, setModal} = React.useContext(ThemeContext)
+    const {indexTramites, tramitesindex, modal, setModal} = React.useContext(ThemeContext)
 
     React.useEffect(() => {
         indexTramites();
-        console.log(tramites)
     }, [])
+    console.log("Aqui imprime el inicial", tramitesindex)
 
 
     return(<>
@@ -25,12 +25,12 @@ const Tramites = () => {
     <button onClick={() => setModal({activar: true, ventana: <Create/>})}>Crear tramite</button>
     <table>
     {
-        tramites.length > 0? 
-            tramites.map((item) => {
+        tramitesindex.length != 0 ? 
+            tramitesindex?.map((item) => (
                 <tr>
-                    <td><Link to="">{tramites.nombreTramite}</Link></td>
+                    <td><Link to={`/view/${item.IdTramite}`}>{item.NombreTramite}</Link></td>
                 </tr>
-            })
+            ))
         
         : <p>No hay tramites aun</p>
     }

@@ -16,14 +16,15 @@ const CreateCampos = () => {
                         <label>NombreCampo</label>
                         <input type="text" placeholder="NombreCampo" id="NombreCampo" {...register("NombreCampo", {required: true})}/>
 
+                        <label>Descripcion</label>
+                        <input type="text" placeholder="Descripcion" id="Descripcion" {...register("Descripcion", {required: true})}/>
+
                         <label>Tipo</label>
                         <input type="text" placeholder="Tipo" id="Tipo" {...register("Tipo", {required: true})}/>
 
                         <label>Obligatorio</label>
                         <input type="text" placeholder="Obligatorio" id="Obligatorio" {...register("Obligatorio", {required: true})}/>
 
-                        <label>Descripcion</label>
-                        <input type="text" placeholder="Descripcion" id="Descripcion" {...register("Descripcion", {required: true})}/>
                         <button className="btn">Crear Etapa</button>
                     </div>                
                 }
